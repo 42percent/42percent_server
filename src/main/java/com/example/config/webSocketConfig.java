@@ -1,20 +1,22 @@
 package com.example.config;
 
-import com.example.handler.chatHandler;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.config.annotation.EnableWebSocket;
-import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
-import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.socket.config.annotation.*;
 
-@Slf4j
 @Configuration
-@EnableWebSocket
-public class webSocketConfig implements WebSocketConfigurer {
-    private chatHandler chatHandler = new chatHandler();
+@EnableWebSocketMessageBroker
+public class webSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        log.info("registry!! " +registry);
-        registry.addHandler(chatHandler, "/chat").setAllowedOrigins("*");
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        config.enableSimpleBroker("/sub");
+        config.setApplicationDestinationPrefixes("/pub");
+    }
+
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/ws-stomp").setAllowedOrigins("*")
+                .withSockJS();
     }
 }

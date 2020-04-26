@@ -1,3 +1,4 @@
+/*
 package com.example.service;
 
 import com.example.vo.chatRoomVo;
@@ -8,19 +9,42 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.*;
 
 @Slf4j
+@RequiredArgsConstructor
 @Service
 public class chatService {
 
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
+    private Map<String, chatRoomVo> chatRooms;
 
-    public chatRoomVo createRoom(chatRoomVo vo) {
+    @PostConstruct
+    private void init() {
+        chatRooms = new LinkedHashMap<>();
+    }
 
-       vo.setRoom_id(vo.getRoom_id());
+    public List<chatRoomVo> findAllRoom() {
+        return new ArrayList<>(chatRooms.values());
+    }
 
-        return vo;
+    public chatRoomVo findRoomById(String roomId) {
+        return chatRooms.get(roomId);
+    }
+
+    public chatRoomVo createRoom(String name) {
+        String randomId = UUID.randomUUID().toString();
+
+        chatRoomVo chatRoom = chatRoomVo.builder()
+                .room_id(randomId)
+                .room_title(name)
+                .build();
+        chatRooms.put(randomId, chatRoom);
+
+        return chatRoom;
+
     }
 
     public <T> void sendMessage(WebSocketSession session, T message) {
@@ -30,10 +54,5 @@ public class chatService {
             log.error(e.getMessage(), e);
         }
     }
-
-    public static chatRoomVo findRoomById( int room_id){
-        chatRoomVo chatRoomVo = new chatRoomVo();
-        chatRoomVo.setRoom_id(room_id);
-        return chatRoomVo;
-    }
 }
+*/

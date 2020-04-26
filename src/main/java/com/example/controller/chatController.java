@@ -1,43 +1,33 @@
 package com.example.controller;
 
-import com.example.service.chatService;
-import com.example.vo.chatRoomVo;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.vo.chatMessageVo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.socket.WebSocketSession;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-@Slf4j
+@RequiredArgsConstructor
 @Controller
-@RequestMapping(value = "/chat")
 public class chatController {
 
-    @Autowired
-    private chatService chatService;
+//    private final chatService chatService;
+//
+//    @RequestMapping(method = RequestMethod.POST)
+//    public chatRoomVo createRoom(@RequestParam String name) {
+//        return chatService.createRoom(name);
+//    }
+//
+//    @RequestMapping(method = RequestMethod.GET)
+//    public List<chatRoomVo> findAllRoom() {
+//        return chatService.findAllRoom();
+//    }
 
-    @ResponseBody
-    @RequestMapping(value = "/roomList")
-    public List<HashMap<String, Object>> roomList(HttpServletRequest request) {
-        List<HashMap<String, Object>> result = new ArrayList<HashMap<String, Object>>();
+    private final SimpMessageSendingOperations messagingTemplate;
 
-
-        return result;
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "/{room_id}")
-    public chatRoomVo chat(chatRoomVo vo, @PathVariable int room_id) {
-        vo.setRoom_id(room_id);
-        log.info("vo!!  "+vo);
-        return chatService.createRoom(vo);
+    @MessageMapping("/chat/message")
+    public void message(chatMessageVo message) {
+        if (message.getType().JOIN.equals(message.getType()))
+            message.setMessage(message.getSender() + "님이 입장하셨습니다.");
+        messagingTemplate.convertAndSend("/sub/chat/room/" + message.getRoomId(), message);
     }
 }

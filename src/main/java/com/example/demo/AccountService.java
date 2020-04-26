@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class AccountService {
 
-    @Autowired
+/*    @Autowired
     private AccountDao accountDao;
 
     public List<AccountDo> list() {
         return accountDao.findAll();
-    }
+    }*/
 }

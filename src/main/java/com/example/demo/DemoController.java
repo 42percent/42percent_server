@@ -16,7 +16,7 @@ public class DemoController {
     @GetMapping("/")
     public String home() {
 
-        System.out.println(accountService.list());
+        //System.out.println(accountService.list());
 
         System.out.println("TT");
 
