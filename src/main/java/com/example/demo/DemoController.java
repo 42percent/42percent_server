@@ -15,7 +15,6 @@ public class DemoController {
     @GetMapping("/")
     public String home() {
 
-
         return "home";
     }
 
