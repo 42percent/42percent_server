@@ -30,9 +30,14 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+
     // hibernate 5.4.14
     runtimeOnly 'mysql:mysql-connector-java'
 //    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+
     implementation 'org.hibernate:hibernate-agroal:5.4.14.Final'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

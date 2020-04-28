@@ -12,13 +12,8 @@ public class DemoController {
     @Autowired
     private AccountService accountService;
 
-
     @GetMapping("/")
     public String home() {
-
-        //System.out.println(accountService.list());
-
-        System.out.println("TT");
 
         return "home";
     }
@@ -29,5 +24,4 @@ public class DemoController {
 
         return "test";
     }
-
 }
