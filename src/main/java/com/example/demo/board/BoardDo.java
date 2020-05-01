@@ -18,8 +18,8 @@ public class BoardDo {
     private int id;
 
     //    @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "uuid", unique = true)
     private String uuid;
 

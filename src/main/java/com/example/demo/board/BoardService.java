@@ -18,4 +18,15 @@ public class BoardService {
         return boardDao.findAll(PageRequest.of(page, size));
 
     }
+
+    public BoardDo save(BoardDo boardDo) {
+
+        return this.boardDao.save(boardDo);
+    }
+
+
+    public BoardDo getBoard(Long board_id) {
+
+        return boardDao.getOne(board_id);
+    }
 }
