@@ -71,3 +71,17 @@ VerSion : yml 버전
 services : 사용하고자하는 컨테이너 항목
 
 volumes : [바인드마운트 경로]:[컨테이너 상의 마운트 경로]로 설정을 표기하며, 예시의 경우 현재 디렉토리를 컨테이너 상의 /mysql 디렉토리에 마운트한다는 의미
+
+TIP)How to open VScode from Git bash
+
+-VS code에서 경로 설정을 git bash로 잡아줘야함 
+
+FOLLOW THIS 
+
+1.Ctrl + , 눌러 설정에 들어가기
+
+2.설정에 [terminal.integrated.shell.windows](http://terminal.integrated.shell.windows)  검색 
+
+3.설정 경로에 Bash 가 설치된 경로  넣기 
+
+ex)"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
