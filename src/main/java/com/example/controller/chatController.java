@@ -22,12 +22,12 @@ public class chatController {
 //        return chatService.findAllRoom();
 //    }
 
-    private final SimpMessageSendingOperations messagingTemplate;
+//    private final SimpMessageSendingOperations messagingTemplate;
 
-    @MessageMapping("/chat/message")
-    public void message(chatMessageVo message) {
-        if (message.getType().JOIN.equals(message.getType()))
-            message.setMessage(message.getSender() + "님이 입장하셨습니다.");
-        messagingTemplate.convertAndSend("/sub/chat/room/" + message.getRoomId(), message);
-    }
+//    @MessageMapping("/chat/message")
+//    public void message(chatMessageVo message) {
+//        if (message.getType().JOIN.equals(message.getType()))
+//            message.setMessage(message.getSender() + "님이 입장하셨습니다.");
+//        messagingTemplate.convertAndSend("/sub/chat/room/" + message.getRoomId(), message);
+//    }
 }
