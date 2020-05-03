@@ -86,3 +86,14 @@ FOLLOW THIS
 
 ex)"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 
+# GIT
+
+Commit : 파일을 추가하거나 변경 내용을 저장소에 저장하는 작업
+push 파일을 추가하거나 변경 내용을 원격 저장소에 업로드 하는 작업
+fetch : pull ( 다운 + 병합) fetch는 only download
+
+git remove → rm -rf .git 
+
+## /. How to push git respository from local respository
+
+init → git remote add orign  git  address →  git add —all  → git commit → git push origin master
