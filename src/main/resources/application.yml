@@ -1,0 +1,46 @@
+spring:
+  thymeleaf:
+    cache: false
+  freemarker:
+    cache: false
+
+  groovy:
+    template:
+      cache: false
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      additional-paths: .
+  mvc:
+    view:
+      suffix: .html
+
+
+# Database Settings
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: local
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:8000/42percent
+    username: root
+    password: example
+
+---
+
+spring:
+  profiles: deploy
+
+  datasource:
+    url: jdbc:mysql://minpark.iptime.org:8000/42percent
+    username: root
+    password: example
