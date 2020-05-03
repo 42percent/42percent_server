@@ -85,12 +85,3 @@ FOLLOW THIS
 3.설정 경로에 Bash 가 설치된 경로  넣기 
 
 ex)"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-
-\
-1.Ctrl + , 눌러 설정에 들어가기
-
-2.설정에 [terminal.integrated.shell.windows](http://terminal.integrated.shell.windows)  검색 
-
-3.설정 경로에 Bash 가 설치된 경로  넣기 
-
-ex)"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
