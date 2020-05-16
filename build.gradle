@@ -42,7 +42,7 @@ dependencies {
 
     // APM Agents
     implementation 'co.elastic.apm:elastic-apm-agent:1.15.0'
-    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch:3.2.6.RELEASE'
+    //implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch:3.2.6.RELEASE'
 
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
