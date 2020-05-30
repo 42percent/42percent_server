@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestAPIController {
 
     @RequestMapping(value = "/user/login")
-    public String Login_info_get(@RequestParam("username") String username, String password){
-        System.out.println("아이디 :" +username);
+    public String getLoginInfo(@RequestParam("username") String username, String password){
+        System.out.println("아이디 :" + username);
         System.out.println("패스워드 :" + password);
         return "login";
     }
 
     @RequestMapping(value = "/user/signup")
-    public String info_for_login(@RequestParam("username") String username, String name) {
+    public String infoLogin(@RequestParam("username") String username, String name) {
         System.out.println("아이디 :" + username);
         System.out.println("아이11디 :" + name);
         return "signup";
