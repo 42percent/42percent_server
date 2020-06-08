@@ -1,4 +1,13 @@
-I did uploading to
+06,08
 
-Spring_Application
-Spring_Application_my
+HTML 회원가입 업데이트 
+POSTMapping,
+Get.http 로 POST 확인 (Singup 에 Onclick 방식 ) 
+
+CamelCase 확인
+
+
+
+----
+GET MAPPIN POST MAPPING 정확하게 알아봐야할듯
+

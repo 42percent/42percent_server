@@ -33,7 +33,7 @@ public class DemoController {
     }
     @GetMapping("/signup")
     public  String signup() {
-        System.out.println("여기가 회원가입 페이지"); // 05:30 왜 signup 페이지가 안뜨지 .
+        System.out.println("여기가 회원가입 페이지"); //
 
         return "signup";
     }
