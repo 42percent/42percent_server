@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.account;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
