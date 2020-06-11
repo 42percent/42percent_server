@@ -27,7 +27,6 @@ public class BoardRestController {
 
         if (false) {
 
-
         }
 
         return boardService.getBoard(board_id);

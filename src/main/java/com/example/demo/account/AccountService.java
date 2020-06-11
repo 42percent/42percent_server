@@ -15,7 +15,7 @@ import java.util.List;
 public class AccountService {
 
     @Autowired
-    private AccountDao accountDao;
+    public AccountDao accountDao;
 
     public Page<AccountDo> list(int page, int size) {
 
@@ -27,10 +27,12 @@ public class AccountService {
         return this.accountDao.save(AccountDo);
     }
 
-
     public AccountDo getaccount(Long Account_id) {
 
         return accountDao.getOne(Account_id);
     }
-
+    // RestAPIController에서 호출된 save 인터페이스
+    public AccountDo addAccount(AccountDo account) {
+        return accountDao.save(account);
+    }
 }

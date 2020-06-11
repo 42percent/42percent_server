@@ -21,22 +21,17 @@ public class DemoController {
     @GetMapping("/web")
     public String test() {
 
-
         return "test";
     }
 
     @GetMapping("/login")
     public String login() {
 
-        System.out.println("여기가 로그인 페이지"); //서버에 데이터를 주기위해서 먼저 데이터를 받아야겠찌?.
         return "login";
-
     }
     @GetMapping("/signup")
     public  String signup() {
-        System.out.println("여기가 회원가입 페이지"); //
 
         return "signup";
     }
-
 }

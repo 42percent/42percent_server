@@ -1,27 +1,42 @@
 package com.example.demo;
 
+import com.example.demo.account.AccountDo;
 import com.example.demo.account.AccountService;
-import com.example.demo.board.BoardDo;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.annotations.SelectBeforeUpdate;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-import org.springframework.data.jpa.provider.HibernateUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @RestController
 public class RestAPIController {
 
-    //6.09 데이터베이스저장 삽입 쿼리
-    // Session session = Hibernate.getClass()
+    @Autowired
+    private AccountService accountSerivce;
+
+    // 계정을 입력해서 계정 생성하는 폼
+    @GetMapping("/signup")
+    public String form(Model model){
+        model.addAttribute("title","created your information");
+        model.addAttribute("Account",new AccountDo());
+
+        return "signup";
+    }
+    // 저장 버튼클릭시 호출 메서드
+    @PostMapping("/add")
+    public String add(@ModelAttribute AccountDo account,Model model){
+        AccountDo entity = accountSerivce.addAccount(account);
+        model.addAttribute("result",entity);
+
+        return "result";
+    }
 
     @RequestMapping(value = "/user/login")
     public String getLoginInfo(@RequestParam("username") String username, String password){
         System.out.println("아이디 :" + username);
         System.out.println("패스워드 :" + password);
+
         return "login";
     }
 
@@ -34,17 +49,8 @@ public class RestAPIController {
         System.out.println("전 화 번 호  :"  + number);
         System.out.println("이   메  일  :" + user_email);
 
-
         return "/signup";
     }
-    //. account Service 에서 데이터베이스에있는 가져오는방법이..
-    //private AccountService accountService;
-    //@GetMapping("/Account")
-    //public String getListOfAccount(){
-    //   System.out.println(accountService.list());
-    //
-    //      return test;
-    //}
 
     public interface PageMapper{
         
