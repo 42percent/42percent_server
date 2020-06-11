@@ -1,6 +1,6 @@
 package com.example.demo.board;
 
-import com.example.demo.AccountDo;
+import com.example.demo.account.AccountDo;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;

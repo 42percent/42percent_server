@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>로그인 페이지</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function J() {
+            var queryString = $("form[name=testForm]").serialize() ;
+            var settings = {
+                "url": "",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": queryString
+            };
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        }
+
+    </script>
 </head>
 <body>
     <h1>로그인</h1>
     <hr>
 
-    <form action="/user/login" method="post">
-
+    <form name="testForm" action="/user/login" method="post">
         <input type="text" name="username" placeholder="이메일 입력해주세요">
         <input type="password" name="password" placeholder="비밀번호">
-        <button type="submit">로그인</button>
-        <button type="for_signup">회원가입</button>
     </form>
+        <button onclick="J(); return;" type="submit">로그인</button>
+        <button type="for_signup">회원가입</button>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.account;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-
 @Entity
 @Table(name = "account")
 public class AccountDo {
@@ -26,8 +25,17 @@ public class AccountDo {
     @Column(name = "name",columnDefinition="VARCHAR(45)")
     private String name;
 
+    // 6.08 Singup에 추가된 컬럼 추가
+    @Column(name = "password",columnDefinition="VARCHAR(45)")
+    private String password;
 
-//    @Id
+    @Column(name = "phone_number",columnDefinition="VARCHAR(45)")
+    private String phone_number;
+
+    @Column(name = "email",columnDefinition = "VARCHAR(45)")
+    private String email;
+
+    //    @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     @Column(name = "uuid", unique = true)

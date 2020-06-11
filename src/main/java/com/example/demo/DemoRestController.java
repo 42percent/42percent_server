@@ -18,19 +18,5 @@ public class DemoRestController {
         return "test";
     }
 
-    @RequestMapping(value = "/user/login")
-    public String Login_info_get(@RequestParam("username") String username,String password){
-        System.out.println("로그인 페이지 데이터 전달");
-        System.out.println("아이디 :" +username);
-        System.out.println("패스워드 :" + password);
-        return "login";
-    }
 
-    @RequestMapping(value = "/user/signup")
-    public String info_for_login(@RequestParam("username") String username, String name) {
-        System.out.println("회원 가입 페이지 데이터 전달");
-        System.out.println("아이디 :" + username);
-        System.out.println("아이11디 :" + name);
-        return "signup";
-    }
 }
